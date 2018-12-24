@@ -12,6 +12,8 @@ $(document).ready(function() {
 				_setUpListeners(); // Запускаем прослушку событий
 			}
 
+			// Приватные методы
+
 			// Метод прослушки событий
 			// В нем прослушиваем события на странице, например клики по кнопкам, и при срабатывании события запускаем нужный метод нашего модуля
 			var _setUpListeners = function(){
@@ -21,18 +23,15 @@ $(document).ready(function() {
 				});
 			}
 
-			// Приватные методы
-
 			var _formValidate = function (event) {
-				// event.preventDefault();
 
-				if ( _commentTextarea.val() == '' ) {
+				if ( _commentTextarea.val().trim() == '' ) {
 					// _commentErrorEmpty.removeClass('error--hide');
-					_commentErrorEmpty.fadeIn(1000);
 					event.preventDefault();
+					_commentErrorEmpty.fadeIn(1000);
 				} else {
-					_commentErrorEmpty.fadeOut(1000);
 					console.log("Hello from _formValidate(), block else");
+					_commentErrorEmpty.fadeOut(1000);
 					// $('form').unbind('submit').submit();
 				}
 
