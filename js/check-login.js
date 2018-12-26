@@ -12,7 +12,7 @@ $(document).ready(function() {
 			},
 
 			_setUpListeners: function(){
-				$('#buttonSubmit').on('click', formValidation._validateForm);
+				$('#buttonSubmit').on('click', formValidation._validateForm).on('click', formValidation._sendEmail);
 			},
 
 			_validateForm: function(event){
@@ -38,8 +38,31 @@ $(document).ready(function() {
 						console.log("formGroup: " + formGroup);
 						form.find('.notify--error').remove();
 						noEmailError.prependTo(form);
+						valid = false;
 					}
+
+					// Hide errors
+					input.on('focus', function(){
+						form.find('.notify--error').remove();
+					});
+
+					input.on('keydown', function(){
+						form.find('.notify--error').remove();
+					});
+
 				});
+
+				formValidation.isValid = valid;
+
+			},
+
+			_sendEmail: function(){
+				console.log('formValidation.isValid = ' + formValidation.isValid);
+				if ( formValidation.isValid === true ) {
+					console.log('Sending form!');
+				} else {
+					
+				}
 			}
 
 		};
@@ -47,6 +70,5 @@ $(document).ready(function() {
 		formValidation.init();
 
 	}());
-
 
 });
