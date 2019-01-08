@@ -32,18 +32,9 @@
 					<div class="login-form p-10 pt-30 pb-30">
 						<h1 class="text-center login-heading mt-0 pt-0">Вход на сайт</h1>
 						<form id="form">
-							<!-- <div class="notify notify--error mb-20">Введите email</div> -->
-							<!-- <div class="notify notify--error mb-20">Неверный формат email</div> -->
-							<!-- <div class="notify notify--error mb-20">Введите пароль</div> -->
-							<!-- <div class="notify no-paddings">
-								<div class="notify no-radius-bottom notify--error">Неверный email или пароль</div>
-								<div class="notify no-radius-top">
-									<p>Введите верные данные для входа или воспользуйтесь
-										<a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p>
-								</div>
-							</div> -->
-							<input id="email" class="input-form-registration" name="email" type="email" placeholder="Email" />
-							<input id="password" class="input-form-registration" name="password" type="password" placeholder="Пароль" />
+							<input id="email" class="input-form-registration" name="email" type="email" placeholder="Email" data-error-no-email="Введите email" data-error-invalid-email="Неверный формат email" />
+							<input id="password" class="input-form-registration" name="password" type="password" placeholder="Пароль" data-error-no-password="Введите пароль" data-error-invalid-password="Неверный email или пароль" data-error-invalid-password-message='<p>Введите верные данные для входа или воспользуйтесь
+										<a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p>' />
 							<div class="text-center pt-30">
 								<a id="buttonSubmit" class="button button--enter pl-50 pr-50" href="#">Войти</a>
 							</div>

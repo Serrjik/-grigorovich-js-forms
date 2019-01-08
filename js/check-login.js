@@ -20,10 +20,14 @@ $(document).ready(function() {
 				var form = $('#form'),
 					email = $('#email').val().trim(),
 					password = $('#password').val().trim(),
-					noEmailError = $('<div id="noEmailError" class="notify notify--error mb-20">Введите email</div>'),
-					noPasswordError = $('<div id="noPasswordError" class="notify notify--error mb-20">Введите пароль</div>'),
-					invalidEmailError = $('<div id="invalidEmailError" class="notify notify--error mb-20">Неверный формат email</div>'),
-					wrongEmailOrPasswordError = $('<div id="wrongEmailOrPasswordError" class="notify no-paddings"><div class="notify no-radius-bottom notify--error">Неверный email или пароль</div><div class="notify no-radius-top"><p>Введите верные данные для входа или воспользуйтесь <a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p></div></div>'),
+					noEmailError = $('<div id="noEmailError" class="notify notify--error mb-20">' + $('#email').attr("data-error-no-email") + '</div>'),
+					noPasswordError = $('<div id="noPasswordError" class="notify notify--error mb-20">' + $('#password').attr("data-error-no-password") + '</div>'),
+					invalidEmailError = $('<div id="invalidEmailError" class="notify notify--error mb-20">' + $('#email').attr("data-error-invalid-email") + '</div>'),
+					wrongEmailOrPasswordError = $('<div id="wrongEmailOrPasswordError" class="notify no-paddings"><div class="notify no-radius-bottom notify--error">'
+						+ $('#password').attr("data-error-invalid-password")
+						+ '</div><div class="notify no-radius-top">' +
+						$('#password').attr("data-error-invalid-password-message")
+						+ '</div></div>'),
 					userEmail = "mail@mail.com",
 					userPassword = "123",
 					// email address matching pattern
@@ -50,7 +54,10 @@ $(document).ready(function() {
 					// End  -  Is E-mail right?
 
 					// Is password right?
-					if ( password !== '' ) {
+					if ( password == '' ) {
+						noPasswordError.prependTo(form);
+						valid = false;
+					} else 	{
 						if ( password !== userPassword ) {
 							wrongEmailOrPasswordError.prependTo(form);
 							valid = false;
