@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 					form.find('.notify').remove();
 
-					// Is E-mail right?
+					// Is E-mail valid?
 					if ( email.length === 0 ){
 						noEmailError.prependTo(form);
 						valid = false;
@@ -44,29 +44,37 @@ $(document).ready(function() {
 						invalidEmailError.prependTo(form);
 						valid = false;
 						console.log("Email is INVALID");
-					} else if ( email !== userEmail ) {
-						wrongEmailOrPasswordError.prependTo(form);
-						valid = false;
-						console.log("Email is WRONG");
-					} else {
-						console.log("Email is RIGHT");
+					} else 
+					 else {
 					}
-					// End  -  Is E-mail right?
-
-					// Is password right?
+					// End  -  Is E-mail valid
+					// Is password valid?
 					if ( password == '' ) {
 						noPasswordError.prependTo(form);
 						valid = false;
 					} else 	{
-						if ( password !== userPassword ) {
+						
+					}
+					// End  -  Is password valid?
+
+					// Is E-mail & password right?
+					if ( valid ) {
+						if ( email !== userEmail ) {
 							wrongEmailOrPasswordError.prependTo(form);
 							valid = false;
-							console.log("Password is WRONG");
+							console.log("Email is WRONG");
 						} else {
-							console.log("Password is RIGHT");
+							console.log("Email is RIGHT");
+							if ( password !== userPassword ) {
+								wrongEmailOrPasswordError.prependTo(form);
+								valid = false;
+								console.log("Password is WRONG");
+							} else {
+								console.log("Password is RIGHT");
+							}
 						}
 					}
-					// End  -  Is password right?
+					// End  -  Is E-mail & password right?
 
 					// Hide errors
 					$('#email').on('focus', function(){
