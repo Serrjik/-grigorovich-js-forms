@@ -26,16 +26,13 @@ $(document).ready(function() {
 			var _formValidate = function (event) {
 
 				if ( _commentTextarea.val().trim() == '' ) {
-					// _commentErrorEmpty.removeClass('error--hide');
-					event.preventDefault();
-					_commentErrorEmpty.fadeIn(1000);
-				} else {
-					console.log("Hello from _formValidate(), block else");
-					_commentErrorEmpty.fadeOut(1000);
-					// $('form').unbind('submit').submit();
-				}
 
-				// console.log(_commentTextarea.val());
+					_commentErrorEmpty.fadeIn(1000);
+					event.preventDefault();
+				} else {
+					_commentErrorEmpty.fadeOut(1000);
+					console.log("Hello from _formValidate(), block else");
+				}
 
 			}
 
