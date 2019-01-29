@@ -44,10 +44,9 @@ $(document).ready(function() {
 						invalidEmailError.prependTo(form);
 						valid = false;
 						console.log("Email is INVALID");
-					} else 
-					 else {
 					}
 					// End  -  Is E-mail valid
+
 					// Is password valid?
 					if ( password == '' ) {
 						noPasswordError.prependTo(form);
