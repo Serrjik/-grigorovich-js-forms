@@ -26,6 +26,7 @@ $(document).ready(function() {
 			var _formValidate = function (event) {
 
 				if ( _commentTextarea.val().trim() == '' ) {
+
 					_commentErrorEmpty.fadeIn(1000);
 					event.preventDefault();
 				} else {
