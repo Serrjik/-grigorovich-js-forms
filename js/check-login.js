@@ -77,11 +77,13 @@ $(document).ready(function() {
 
 					// Hide errors
 					$('#email').on('focus', function(){
-						form.find('#noEmailError', '#invalidEmailError').remove();
+						form.find('#noEmailError').remove();
+						form.find('#invalidEmailError').remove();
 					});
 
 					$('#email').on('keydown', function(){
-						form.find('#noEmailError', '#invalidEmailError').remove();
+						form.find('#noEmailError').remove();
+						form.find('#invalidEmailError').remove();
 					});
 
 					$('#password').on('focus', function(){
